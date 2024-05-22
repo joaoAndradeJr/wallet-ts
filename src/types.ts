@@ -27,6 +27,7 @@ export type ButtonProps = {
   value: string;
   onClick: () => void;
   disabled?: boolean;
+  testId?: string;
 };
 
 export type DispatchType = ThunkDispatch<GlobalState, unknown, AnyAction>;

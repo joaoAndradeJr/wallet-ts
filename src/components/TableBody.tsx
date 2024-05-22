@@ -1,8 +1,15 @@
-import { useSelector } from 'react-redux';
-import { GlobalState } from '../types';
+import { useDispatch, useSelector } from 'react-redux';
+import { DispatchType, GlobalState } from '../types';
+import { removeExpense } from '../redux/actions';
+import Button from './Button';
 
 export default function TableBody() {
   const { expenses } = useSelector(({ wallet }: GlobalState) => wallet);
+  const dispatch: DispatchType = useDispatch();
+
+  const deleteExpense = (id: number) => {
+    dispatch(removeExpense(id));
+  };
 
   return (
     <tbody>
@@ -20,7 +27,13 @@ export default function TableBody() {
               <td>{ (+ask).toFixed(2) }</td>
               <td>{ ((+ask) * (+value)).toFixed(2) }</td>
               <td>Real</td>
-              <td>{ 1 }</td>
+              <td>
+                <Button
+                  value="Excluir"
+                  onClick={ () => deleteExpense(id) }
+                  testId="delete-btn"
+                />
+              </td>
             </tr>
           );
         })
