@@ -30,3 +30,12 @@ export type ButtonProps = {
 };
 
 export type DispatchType = ThunkDispatch<GlobalState, unknown, AnyAction>;
+
+export type SelectProps = {
+  options: string[];
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  label?: string;
+  testId: string;
+};

@@ -1,4 +1,4 @@
-export const SET_EMAIL = 'SET_EMAIL';
+import { SET_EMAIL } from '../../services/typos';
 
 export const setEmail = (email: string) => ({
   type: SET_EMAIL,

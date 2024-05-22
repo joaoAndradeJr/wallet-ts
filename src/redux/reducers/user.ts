@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { SET_EMAIL } from '../actions';
+import { SET_EMAIL } from '../../services/typos';
 
 const INITIAL_STATE = {
   email: '',

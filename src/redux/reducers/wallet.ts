@@ -1,13 +1,7 @@
 import { AnyAction } from 'redux';
+import { WALLET_INITIAL_STATE } from '../../services/typos';
 
-const INITIAL_STATE = {
-  expenses: [],
-  currencies: [],
-  idToEdit: 0,
-  isEditing: false,
-};
-
-function wallet(state = INITIAL_STATE, action: AnyAction) {
+function wallet(state = WALLET_INITIAL_STATE, action: AnyAction) {
   switch (action.type) {
     default:
       return state;
