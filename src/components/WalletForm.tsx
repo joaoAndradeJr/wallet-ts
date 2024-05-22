@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { GlobalState } from '../types';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { DispatchType, GlobalState } from '../types';
 import { FORM_INITIAL_STATE, methods, tags } from '../services/typos';
 import Input from './Input';
 import Select from './Select';
 import Button from './Button';
+import { getCurrencies, setExpense } from '../redux/actions';
 
 function WalletForm() {
   const [state, setState] = useState(FORM_INITIAL_STATE);
   const { currencies } = useSelector(({ wallet }: GlobalState) => wallet);
+  const dispatch: DispatchType = useDispatch();
 
   const handleChange = ({ target }:
   React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = target;
     setState({ ...state, [name]: value });
   };
+
+  const handleSubmit = () => {
+    dispatch(setExpense(state));
+    setState((prev) => ({ ...FORM_INITIAL_STATE, id: prev.id + 1 }));
+  };
+
+  useEffect(() => {
+    dispatch(getCurrencies());
+  }, [dispatch]);
 
   return (
     <form>
@@ -59,7 +70,7 @@ function WalletForm() {
       />
       <Button
         value="Adicionar despesa"
-        onClick={ () => console.log('Adicionando despesa') }
+        onClick={ handleSubmit }
       />
     </form>
   );

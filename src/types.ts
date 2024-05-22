@@ -39,3 +39,27 @@ export type SelectProps = {
   label?: string;
   testId: string;
 };
+
+export type Expense = {
+  value: string;
+  description: string;
+  currency: string;
+  method: string;
+  tag: string;
+  id: number;
+  exchangeRates?: { [key: string]: ExchangeRate };
+};
+
+export type ExchangeRate = {
+  code: string;
+  codein: string;
+  name: string;
+  high: string;
+  low: string;
+  varBid: string;
+  pctChange: string;
+  bid: string;
+  ask: string;
+  timestamp: string;
+  create_date: string;
+};

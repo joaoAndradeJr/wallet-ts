@@ -6,6 +6,7 @@ export const WALLET_INITIAL_STATE = {
 };
 
 export const FORM_INITIAL_STATE = {
+  id: 0,
   value: '',
   description: '',
   currency: 'USD',
@@ -20,3 +21,5 @@ export const SET_CURRENCIES = 'SET_CURRENCIES';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 export const EDIT_EXPENSE = 'EDIT_EXPENSE';
+
+export const API_URL = 'https://economia.awesomeapi.com.br/json/all';
